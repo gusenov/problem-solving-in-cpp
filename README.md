@@ -10,3 +10,5 @@
 - [Перевод числа из десятичной системы счисления в двоичную](recursive-programming/recursion-dec-to-bin/)
 - [Рекурсивный вывод последовательности чисел](recursive-programming/recursion-print-array/)
 - [Рекурсивный ввод последовательности чисел](recursive-programming/recursion-user-input/)
+- [Выделение памяти под одномерный динамический массив, используя функцию malloc()](dynamic-alloc-1d-arr/malloc-random-array/)
+- [Выделение памяти под одномерный динамический массив, оператор new](dynamic-alloc-1d-arr/new-random-array/)
