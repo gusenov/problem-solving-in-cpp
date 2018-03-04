@@ -49,6 +49,9 @@ public:
 	// Конструктор:
 	Element(const T& value, Element<T>* previous = 0, Element<T>* next = 0):
 		value(value), previous(previous), next(next) {};
+		
+	// Деструктор.
+	~Element(void) {}
 	
 	// Добавление: в качестве аргумента передается число i, элемент добавляется до i-ого элемента в списке.
 	Element<T>* insertElementBeforeIndex(const T& elementValue, int i) {
@@ -125,6 +128,19 @@ public:
 	// Конструктор.
 	List2(Element<T>* head = 0): head(head) {};
 	
+	// Деструктор.
+	~List2(void) {
+		std::cout << "Деструкция двусвязного списка..." << std::endl;
+		Element<int>* element = this->head;
+		Element<int>* nextElement = 0;
+		do {
+			nextElement = element->next;
+			std::cout << "Деструкция элемента со значением " << element->value << std::endl;
+			delete element;
+			element = nextElement;
+		} while (element);
+	}
+	
 	// Добавление элемента в список перед i-м элементом:
     Element<T>* insertElementBeforeIndex(const T& elementValue, int i) {
     	Element<T>* newElement;
@@ -173,7 +189,7 @@ int main(int argc, char** argv) {
 	cyrillic();
 	std::cout << "Двусвязный список с функциями Добавления, Удаления и Поиска" << std::endl;
 	
-	Base<int>* myList2 = new List2<int>();
+	List2<int>* myList2 = new List2<int>();
 	
 	std::cout << "Меню:" << std::endl;
 	std::cout << "\t1) Добавить элемент со значением перед i-м элементом в списке" << std::endl;
@@ -210,10 +226,14 @@ int main(int argc, char** argv) {
 			case 4:
 				myList2->print();
 				break;
-			default:
+			case 5:
+				delete myList2;
 				return EXIT_SUCCESS;
+			default:
+				continue;
 		}
 	}
 	
+	delete myList2;
 	return EXIT_SUCCESS;
 }
