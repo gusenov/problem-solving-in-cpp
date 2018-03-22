@@ -2,62 +2,62 @@
 #include <cstdlib>
 #include <windows.h>
 
-// Переход на кириллицу:
+// РџРµСЂРµС…РѕРґ РЅР° РєРёСЂРёР»Р»РёС†Сѓ:
 void cyrillic() {
-	// Эти строки нужны для правильного отображения кириллицы:
+	// Р­С‚Рё СЃС‚СЂРѕРєРё РЅСѓР¶РЅС‹ РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєРёСЂРёР»Р»РёС†С‹:
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 	
-	// Также надо изменить шрифт в консоли на Lucida Console.
-	// Для замены шрифта кликаете правой кнопкой на надписи «Командная строка» окна консоли. 
-	// В открывшемся меню выбираете «Свойства». 
-	// В появившемся окне выбираете вкладку «Шрифт» и там выбираете «Lucida Console». 
+	// РўР°РєР¶Рµ РЅР°РґРѕ РёР·РјРµРЅРёС‚СЊ С€СЂРёС„С‚ РІ РєРѕРЅСЃРѕР»Рё РЅР° Lucida Console.
+	// Р”Р»СЏ Р·Р°РјРµРЅС‹ С€СЂРёС„С‚Р° РєР»РёРєР°РµС‚Рµ РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ РЅР° РЅР°РґРїРёСЃРё В«РљРѕРјР°РЅРґРЅР°СЏ СЃС‚СЂРѕРєР°В» РѕРєРЅР° РєРѕРЅСЃРѕР»Рё. 
+	// Р’ РѕС‚РєСЂС‹РІС€РµРјСЃСЏ РјРµРЅСЋ РІС‹Р±РёСЂР°РµС‚Рµ В«РЎРІРѕР№СЃС‚РІР°В». 
+	// Р’ РїРѕСЏРІРёРІС€РµРјСЃСЏ РѕРєРЅРµ РІС‹Р±РёСЂР°РµС‚Рµ РІРєР»Р°РґРєСѓ В«РЁСЂРёС„С‚В» Рё С‚Р°Рј РІС‹Р±РёСЂР°РµС‚Рµ В«Lucida ConsoleВ». 
 }
 
 
-// Предварительное объявление классов:
+// РџСЂРµРґРІР°СЂРёС‚РµР»СЊРЅРѕРµ РѕР±СЉСЏРІР»РµРЅРёРµ РєР»Р°СЃСЃРѕРІ:
 
 template <class T>
-class Element;  // элемент двусвязного списка.
+class Element;  // СЌР»РµРјРµРЅС‚ РґРІСѓСЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР°.
 
 template <class T>
-class List2;  // двусвязный список.
+class List2;  // РґРІСѓСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє.
 
 
-// Интерфейс, который имплементируется в классах Element и List2:
+// РРЅС‚РµСЂС„РµР№СЃ, РєРѕС‚РѕСЂС‹Р№ РёРјРїР»РµРјРµРЅС‚РёСЂСѓРµС‚СЃСЏ РІ РєР»Р°СЃСЃР°С… Element Рё List2:
 template <typename T>
 class Base {
 public:
-    virtual Element<T>* insertElementBeforeIndex(const T& elementValue, int i) = 0;  // добавление элемента по значению.
-    virtual Element<T>* deleteElementByValue(const T& elementValue) = 0;  // удаление элемента по значению.
-    virtual Element<T>* searchElementByValue(const T& elementValue) = 0;  // поиск элемента.
-    virtual void print() = 0;  // вывод на экран.
+    virtual Element<T>* insertElementBeforeIndex(const T& elementValue, int i) = 0;  // РґРѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ.
+    virtual Element<T>* deleteElementByValue(const T& elementValue) = 0;  // СѓРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ.
+    virtual Element<T>* searchElementByValue(const T& elementValue) = 0;  // РїРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°.
+    virtual void print() = 0;  // РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ.
 };
 
-// Элемент двусвязного списка:
+// Р­Р»РµРјРµРЅС‚ РґРІСѓСЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР°:
 template <class T>
 class Element : public Base<T> {
-	friend class List2<T>;  // класс List2 будет дружественным, т.к. ему нужен доступ к указателям на элементы.
+	friend class List2<T>;  // РєР»Р°СЃСЃ List2 Р±СѓРґРµС‚ РґСЂСѓР¶РµСЃС‚РІРµРЅРЅС‹Рј, С‚.Рє. РµРјСѓ РЅСѓР¶РµРЅ РґРѕСЃС‚СѓРї Рє СѓРєР°Р·Р°С‚РµР»СЏРј РЅР° СЌР»РµРјРµРЅС‚С‹.
 
 private:
-	Element<T>* previous;  // предыдущий элемент.
-	Element<T>* next;  // следующий элемент.
+	Element<T>* previous;  // РїСЂРµРґС‹РґСѓС‰РёР№ СЌР»РµРјРµРЅС‚.
+	Element<T>* next;  // СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚.
 
 public:
-	T value;  // значение элемента.
+	T value;  // Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°.
 	
-	// Конструктор:
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ:
 	Element(const T& value, Element<T>* previous = 0, Element<T>* next = 0):
 		value(value), previous(previous), next(next) {};
 		
-	// Деструктор.
+	// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ.
 	~Element(void) {}
 	
-	// Добавление: в качестве аргумента передается число i, элемент добавляется до i-ого элемента в списке.
+	// Р”РѕР±Р°РІР»РµРЅРёРµ: РІ РєР°С‡РµСЃС‚РІРµ Р°СЂРіСѓРјРµРЅС‚Р° РїРµСЂРµРґР°РµС‚СЃСЏ С‡РёСЃР»Рѕ i, СЌР»РµРјРµРЅС‚ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ РґРѕ i-РѕРіРѕ СЌР»РµРјРµРЅС‚Р° РІ СЃРїРёСЃРєРµ.
 	Element<T>* insertElementBeforeIndex(const T& elementValue, int i) {
-		Element<T>* newElement = 0;  // указатель на новый элемент списка.
+		Element<T>* newElement = 0;  // СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°.
 		
-		// Поиск i-го элемента, перед которым нужно вставить новый элемент:
+		// РџРѕРёСЃРє i-РіРѕ СЌР»РµРјРµРЅС‚Р°, РїРµСЂРµРґ РєРѕС‚РѕСЂС‹Рј РЅСѓР¶РЅРѕ РІСЃС‚Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚:
 		int elementIndex = 0;
 		Element<T>* element = this;
 		while (elementIndex != i && element->next) {
@@ -65,27 +65,27 @@ public:
 			elementIndex++;
 		}
 		
-		if (i > elementIndex) {  // если i больше, чем количество элементов в списке, то добавить в конец:
-			newElement = new Element<T>(elementValue, element);  // инстанцирование нового элемента списка.
+		if (i > elementIndex) {  // РµСЃР»Рё i Р±РѕР»СЊС€Рµ, С‡РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃРїРёСЃРєРµ, С‚Рѕ РґРѕР±Р°РІРёС‚СЊ РІ РєРѕРЅРµС†:
+			newElement = new Element<T>(elementValue, element);  // РёРЅСЃС‚Р°РЅС†РёСЂРѕРІР°РЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР°.
 			element->next = newElement;
 		
 		} else {
-			newElement = new Element<T>(elementValue, element->previous, element);  // инстанцирование нового элемента списка.
+			newElement = new Element<T>(elementValue, element->previous, element);  // РёРЅСЃС‚Р°РЅС†РёСЂРѕРІР°РЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР°.
 			if (element->previous)
 				element->previous->next = newElement;
 			element->previous = newElement;
 		}
 		
-		return newElement;  // возврат указателя на новый элемент списка.
+		return newElement;  // РІРѕР·РІСЂР°С‚ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°.
 	}
 	
-	// Удаление: передается значение элемента.
+	// РЈРґР°Р»РµРЅРёРµ: РїРµСЂРµРґР°РµС‚СЃСЏ Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°.
 	Element<T>* deleteElementByValue(const T& elementValue) {
-		// Удаляется первый элемент с таким значением.
+		// РЈРґР°Р»СЏРµС‚СЃСЏ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј Р·РЅР°С‡РµРЅРёРµРј.
 		
-		Element<T>* firstElement = this->searchElementByValue(elementValue);  // найти элемент с заданным значением.
+		Element<T>* firstElement = this->searchElementByValue(elementValue);  // РЅР°Р№С‚Рё СЌР»РµРјРµРЅС‚ СЃ Р·Р°РґР°РЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј.
 		
-		if (firstElement) {  // если элемент найден, то исправляем указатели:
+		if (firstElement) {  // РµСЃР»Рё СЌР»РµРјРµРЅС‚ РЅР°Р№РґРµРЅ, С‚Рѕ РёСЃРїСЂР°РІР»СЏРµРј СѓРєР°Р·Р°С‚РµР»Рё:
 			if (firstElement->previous)
 				firstElement->previous->next = firstElement->next;
 			
@@ -96,17 +96,17 @@ public:
 		return firstElement;
 	}
 	
-	// Поиск элемента по значению:
+	// РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ:
 	Element<T>* searchElementByValue(const T& elementValue) {
 		Element<T>* element = this;
 		do {
-			if (element->value == elementValue)  // если значения совпадают, то:
-				return element;  // элемент найден.
+			if (element->value == elementValue)  // РµСЃР»Рё Р·РЅР°С‡РµРЅРёСЏ СЃРѕРІРїР°РґР°СЋС‚, С‚Рѕ:
+				return element;  // СЌР»РµРјРµРЅС‚ РЅР°Р№РґРµРЅ.
 		} while (element = element->next);
-		return 0;  // элемент не найден.
+		return 0;  // СЌР»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ.
 	}
 	
-	// Печать элементов списка:
+	// РџРµС‡Р°С‚СЊ СЌР»РµРјРµРЅС‚РѕРІ СЃРїРёСЃРєР°:
 	void print() {
 		Element<int>* head = this;
 		while (head) {
@@ -117,69 +117,69 @@ public:
 	}
 };
 
-// Двусвязный список с функциями Добавления, Удаления и Поиска.
+// Р”РІСѓСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє СЃ С„СѓРЅРєС†РёСЏРјРё Р”РѕР±Р°РІР»РµРЅРёСЏ, РЈРґР°Р»РµРЅРёСЏ Рё РџРѕРёСЃРєР°.
 template <class T>
 class List2 : public Base<T> {
 	
 private:
-	Element<T>* head;  // голова списка.
+	Element<T>* head;  // РіРѕР»РѕРІР° СЃРїРёСЃРєР°.
 
 public:
-	// Конструктор.
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
 	List2(Element<T>* head = 0): head(head) {};
 	
-	// Деструктор.
+	// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ.
 	~List2(void) {
-		std::cout << "Деструкция двусвязного списка..." << std::endl;
+		std::cout << "Р”РµСЃС‚СЂСѓРєС†РёСЏ РґРІСѓСЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР°..." << std::endl;
 		Element<int>* element = this->head;
 		Element<int>* nextElement = 0;
 		do {
 			nextElement = element->next;
-			std::cout << "Деструкция элемента со значением " << element->value << std::endl;
+			std::cout << "Р”РµСЃС‚СЂСѓРєС†РёСЏ СЌР»РµРјРµРЅС‚Р° СЃРѕ Р·РЅР°С‡РµРЅРёРµРј " << element->value << std::endl;
 			delete element;
 			element = nextElement;
 		} while (element);
 	}
 	
-	// Добавление элемента в список перед i-м элементом:
+	// Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ СЃРїРёСЃРѕРє РїРµСЂРµРґ i-Рј СЌР»РµРјРµРЅС‚РѕРј:
     Element<T>* insertElementBeforeIndex(const T& elementValue, int i) {
     	Element<T>* newElement;
 		if (this->head) {
 	    	newElement = this->head->insertElementBeforeIndex(elementValue, i);
-	    	while (this->head->previous) {  // поиск нового головного элемента:
+	    	while (this->head->previous) {  // РїРѕРёСЃРє РЅРѕРІРѕРіРѕ РіРѕР»РѕРІРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°:
 	    		this->head = this->head->previous;
 			}
-		} else {  // если список пуст, то:
-			this->head = newElement = new Element<T>(elementValue);  // создаем головной элемент списка.
+		} else {  // РµСЃР»Рё СЃРїРёСЃРѕРє РїСѓСЃС‚, С‚Рѕ:
+			this->head = newElement = new Element<T>(elementValue);  // СЃРѕР·РґР°РµРј РіРѕР»РѕРІРЅРѕР№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°.
 		}
-		return newElement;  // возврат нового элемента списка.
+		return newElement;  // РІРѕР·РІСЂР°С‚ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР°.
 	}
     
-    // Удаление из списка первого элемента с заданным значением:
+    // РЈРґР°Р»РµРЅРёРµ РёР· СЃРїРёСЃРєР° РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° СЃ Р·Р°РґР°РЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј:
 	Element<T>* deleteElementByValue(const T& elementValue) {
 		if (this->head) {
 			Element<T>* deletedElement = this->head->deleteElementByValue(elementValue);
-			if (deletedElement == this->head) {  // назначение нового головного элемента:
+			if (deletedElement == this->head) {  // РЅР°Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ РіРѕР»РѕРІРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°:
 				this->head = deletedElement->next;
 			}
-			return deletedElement;  // возвращаем удаленный элемент списка.
+			return deletedElement;  // РІРѕР·РІСЂР°С‰Р°РµРј СѓРґР°Р»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°.
 		} else {
 			return 0;
 		}
 	}
     
-    // Поиск элемента по значению:
+    // РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ:
 	Element<T>* searchElementByValue(const T& elementValue) {
 		return this->head->searchElementByValue(elementValue);
 	}
     
-    // Печать всего списка элементов начиная с головы списка:
+    // РџРµС‡Р°С‚СЊ РІСЃРµРіРѕ СЃРїРёСЃРєР° СЌР»РµРјРµРЅС‚РѕРІ РЅР°С‡РёРЅР°СЏ СЃ РіРѕР»РѕРІС‹ СЃРїРёСЃРєР°:
 	void print() {
 		if (!this->head) {
-			std::cout << "Список пуст!" << std::endl;
+			std::cout << "РЎРїРёСЃРѕРє РїСѓСЃС‚!" << std::endl;
 			return;
 		} else {
-			std::cout << "Элементы списка: ";
+			std::cout << "Р­Р»РµРјРµРЅС‚С‹ СЃРїРёСЃРєР°: ";
 			this->head->print();
 		}
 	}
@@ -187,40 +187,40 @@ public:
 
 int main(int argc, char** argv) {
 	cyrillic();
-	std::cout << "Двусвязный список с функциями Добавления, Удаления и Поиска" << std::endl;
+	std::cout << "Р”РІСѓСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє СЃ С„СѓРЅРєС†РёСЏРјРё Р”РѕР±Р°РІР»РµРЅРёСЏ, РЈРґР°Р»РµРЅРёСЏ Рё РџРѕРёСЃРєР°" << std::endl;
 	
 	List2<int>* myList2 = new List2<int>();
 	
-	std::cout << "Меню:" << std::endl;
-	std::cout << "\t1) Добавить элемент со значением перед i-м элементом в списке" << std::endl;
-	std::cout << "\t2) Удалить первый элемент со значением" << std::endl;
-	std::cout << "\t3) Поиск элемента по значению" << std::endl;
-	std::cout << "\t4) Печать списка" << std::endl;
-	std::cout << "\t5) Выход" << std::endl;
+	std::cout << "РњРµРЅСЋ:" << std::endl;
+	std::cout << "\t1) Р”РѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј РїРµСЂРµРґ i-Рј СЌР»РµРјРµРЅС‚РѕРј РІ СЃРїРёСЃРєРµ" << std::endl;
+	std::cout << "\t2) РЈРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ СЃРѕ Р·РЅР°С‡РµРЅРёРµРј" << std::endl;
+	std::cout << "\t3) РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р° РїРѕ Р·РЅР°С‡РµРЅРёСЋ" << std::endl;
+	std::cout << "\t4) РџРµС‡Р°С‚СЊ СЃРїРёСЃРєР°" << std::endl;
+	std::cout << "\t5) Р’С‹С…РѕРґ" << std::endl;
 		
 	int choice, elementValue, i;
 	while (1) {
-		std::cout << "Введите номер пункта меню -> "; std::cin >> choice;
+		std::cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСѓРЅРєС‚Р° РјРµРЅСЋ -> "; std::cin >> choice;
 		switch (choice) {
 			case 1:
-				std::cout << "Введите значение нового элемента и позицию i -> ";
+				std::cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° Рё РїРѕР·РёС†РёСЋ i -> ";
 				std::cin >> elementValue >> i;
 				myList2->insertElementBeforeIndex(elementValue, i);
 				myList2->print();
 				break;
 			case 2:
-				std::cout << "Введите значение удаляемого элемента -> ";
+				std::cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р° -> ";
 				std::cin >> elementValue;
 				myList2->deleteElementByValue(elementValue);
 				myList2->print();
 				break;
 			case 3:
-				std::cout << "Введите значение искомого элемента -> ";
+				std::cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РёСЃРєРѕРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р° -> ";
 				std::cin >> elementValue;
 				if (myList2->searchElementByValue(elementValue)) {
-					std::cout << "В списке есть элемент с таким значением." << std::endl;
+					std::cout << "Р’ СЃРїРёСЃРєРµ РµСЃС‚СЊ СЌР»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј Р·РЅР°С‡РµРЅРёРµРј." << std::endl;
 				} else {
-					std::cout << "Элемент с таким значением не найден!" << std::endl;
+					std::cout << "Р­Р»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј Р·РЅР°С‡РµРЅРёРµРј РЅРµ РЅР°Р№РґРµРЅ!" << std::endl;
 				}
 				break;
 			case 4:

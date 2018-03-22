@@ -3,11 +3,11 @@
 
 #include <cstdlib>
 
-// Генерация псевдослучайных целочисленных чисел:
+// Р“РµРЅРµСЂР°С†РёСЏ РїСЃРµРІРґРѕСЃР»СѓС‡Р°Р№РЅС‹С… С†РµР»РѕС‡РёСЃР»РµРЅРЅС‹С… С‡РёСЃРµР»:
 int* newRndIntArr(size_t sz);  // [0; RAND_MAX]
 int* newRndIntArr(size_t sz, size_t rigth);  // [0; rigth]
 
-// Генерация псевдослучайных вещественных чисел:
+// Р“РµРЅРµСЂР°С†РёСЏ РїСЃРµРІРґРѕСЃР»СѓС‡Р°Р№РЅС‹С… РІРµС‰РµСЃС‚РІРµРЅРЅС‹С… С‡РёСЃРµР»:
 float* newRndFloatArr(size_t sz);  // [0; 1]
 float* newRndFloatArr(size_t sz, size_t right);  // [0; right]
 float* newRndFloatArr(size_t sz, size_t left, size_t right);  // [left; right]

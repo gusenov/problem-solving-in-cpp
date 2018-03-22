@@ -4,14 +4,14 @@
 template <class T>
 class Node {
 private:
-	Node<T> *next;  // адрес следующего узла.
+	Node<T> *next;  // Р°РґСЂРµСЃ СЃР»РµРґСѓСЋС‰РµРіРѕ СѓР·Р»Р°.
 public:
 	T data;
 	
-	Node(const T& item, Node<T> *ptrnext = 0);  // конструктор.	
-	void InsertAfter(Node<T> *p);  // вставка следующим.
-	Node<T> *DeleteAfter(void);  // удаление следующего.
-	Node<T> *NextNode(void) const;  // получение адреса следующего.
+	Node(const T& item, Node<T> *ptrnext = 0);  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.	
+	void InsertAfter(Node<T> *p);  // РІСЃС‚Р°РІРєР° СЃР»РµРґСѓСЋС‰РёРј.
+	Node<T> *DeleteAfter(void);  // СѓРґР°Р»РµРЅРёРµ СЃР»РµРґСѓСЋС‰РµРіРѕ.
+	Node<T> *NextNode(void) const;  // РїРѕР»СѓС‡РµРЅРёРµ Р°РґСЂРµСЃР° СЃР»РµРґСѓСЋС‰РµРіРѕ.
 };
 
 template <class T>

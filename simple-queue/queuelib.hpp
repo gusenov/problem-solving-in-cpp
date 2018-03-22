@@ -1,27 +1,27 @@
 #ifndef QUEUE_LIB_HPP
 #define QUEUE_LIB_HPP
 
-const int MaxQSize = 10;  // макс. размер очереди.
-typedef int QDataType;  // элементы очереди имеют тип int.
+const int MaxQSize = 10;  // РјР°РєСЃ. СЂР°Р·РјРµСЂ РѕС‡РµСЂРµРґРё.
+typedef int QDataType;  // СЌР»РµРјРµРЅС‚С‹ РѕС‡РµСЂРµРґРё РёРјРµСЋС‚ С‚РёРї int.
 
 class Queue {
 private:
-	QDataType qlist[MaxQSize];  // массив очереди.
-	int front;  // индекс первого элемента.
-	int rear;  // индекс места вставки.
-	int count;  // общее количество элементов.
+	QDataType qlist[MaxQSize];  // РјР°СЃСЃРёРІ РѕС‡РµСЂРµРґРё.
+	int front;  // РёРЅРґРµРєСЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°.
+	int rear;  // РёРЅРґРµРєСЃ РјРµСЃС‚Р° РІСЃС‚Р°РІРєРё.
+	int count;  // РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ.
 public:
-	Queue(void);  // конструктор.
-	void QInsert(const QDataType& item);  // вставить элемент в конец очереди.
-	QDataType QDelete(void);  // извлечь элемент из начала очереди.
-	void ClearQueue(void);  // очистить очередь.
-	QDataType QFront(void) const;  // считать первый элемент без удаления.
-	int QEmpty(void) const;  // очередь пуста?
-	int QFull(void) const;  // очередь полна?
-	int QLength(void) const;  // возвратить длину очереди.
-	void QInsertFront(const QDataType &item);  // метод, вставляющий элемент в начало очереди.
+	Queue(void);  // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
+	void QInsert(const QDataType& item);  // РІСЃС‚Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё.
+	QDataType QDelete(void);  // РёР·РІР»РµС‡СЊ СЌР»РµРјРµРЅС‚ РёР· РЅР°С‡Р°Р»Р° РѕС‡РµСЂРµРґРё.
+	void ClearQueue(void);  // РѕС‡РёСЃС‚РёС‚СЊ РѕС‡РµСЂРµРґСЊ.
+	QDataType QFront(void) const;  // СЃС‡РёС‚Р°С‚СЊ РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚ Р±РµР· СѓРґР°Р»РµРЅРёСЏ.
+	int QEmpty(void) const;  // РѕС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°?
+	int QFull(void) const;  // РѕС‡РµСЂРµРґСЊ РїРѕР»РЅР°?
+	int QLength(void) const;  // РІРѕР·РІСЂР°С‚РёС‚СЊ РґР»РёРЅСѓ РѕС‡РµСЂРµРґРё.
+	void QInsertFront(const QDataType &item);  // РјРµС‚РѕРґ, РІСЃС‚Р°РІР»СЏСЋС‰РёР№ СЌР»РµРјРµРЅС‚ РІ РЅР°С‡Р°Р»Рѕ РѕС‡РµСЂРµРґРё.
 	
-	void debugPrint(void);  // отладочный вывод.
+	void debugPrint(void);  // РѕС‚Р»Р°РґРѕС‡РЅС‹Р№ РІС‹РІРѕРґ.
 };
 
 #endif

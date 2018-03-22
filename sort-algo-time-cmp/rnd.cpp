@@ -1,9 +1,9 @@
 #include "rnd.hpp"
 
-// Функция rand() генерирует числа в диапазоне от 0 до RAND_MAX.
-// RAND_MAX — это константа, определённая в библиотеке <cstdlib>.
+// Р¤СѓРЅРєС†РёСЏ rand() РіРµРЅРµСЂРёСЂСѓРµС‚ С‡РёСЃР»Р° РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ RAND_MAX.
+// RAND_MAX вЂ” СЌС‚Рѕ РєРѕРЅСЃС‚Р°РЅС‚Р°, РѕРїСЂРµРґРµР»С‘РЅРЅР°СЏ РІ Р±РёР±Р»РёРѕС‚РµРєРµ <cstdlib>.
 // #define RAND_MAX 0x7fff /* 32767 */
-// Для Dev-C++ 5.11 RAND_MAX = 32767, но оно может быть и больше, в зависимости от компилятора.
+// Р”Р»СЏ Dev-C++ 5.11 RAND_MAX = 32767, РЅРѕ РѕРЅРѕ РјРѕР¶РµС‚ Р±С‹С‚СЊ Рё Р±РѕР»СЊС€Рµ, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РєРѕРјРїРёР»СЏС‚РѕСЂР°.
 
 int* newRndIntArr(size_t sz) {
 	int* arr = new int[sz];
@@ -16,7 +16,7 @@ int* newRndIntArr(size_t sz) {
 int* newRndIntArr(size_t sz, size_t rigth) {
 	int* arr = new int[sz];
 	for (int i = 0; i < sz; i++) {
-		*(arr + i) = ( rand() % (rigth + 1) );  // генерация случайного целого числа в диапазоне [0; rigth].
+		*(arr + i) = ( rand() % (rigth + 1) );  // РіРµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ С†РµР»РѕРіРѕ С‡РёСЃР»Р° РІ РґРёР°РїР°Р·РѕРЅРµ [0; rigth].
 	}
 	return arr;
 }
@@ -24,7 +24,7 @@ int* newRndIntArr(size_t sz, size_t rigth) {
 float* newRndFloatArr(size_t sz) {
 	float* arr = new float[sz];
 	for (int i = 0; i < sz; i++) {
-		*(arr + i) = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);  // генерация случайного вещественного числа в диапазоне [0; 1].
+		*(arr + i) = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);  // РіРµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РІРµС‰РµСЃС‚РІРµРЅРЅРѕРіРѕ С‡РёСЃР»Р° РІ РґРёР°РїР°Р·РѕРЅРµ [0; 1].
 	}
 	return arr;
 }
@@ -32,7 +32,7 @@ float* newRndFloatArr(size_t sz) {
 float* newRndFloatArr(size_t sz, size_t right) {
 	float* arr = new float[sz];
 	for (int i = 0; i < sz; i++) {
-		*(arr + i) = static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / right));  // генерация случайного вещественного числа в диапазоне [0; right].
+		*(arr + i) = static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / right));  // РіРµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РІРµС‰РµСЃС‚РІРµРЅРЅРѕРіРѕ С‡РёСЃР»Р° РІ РґРёР°РїР°Р·РѕРЅРµ [0; right].
 	}
 	return arr;
 }
@@ -40,7 +40,7 @@ float* newRndFloatArr(size_t sz, size_t right) {
 float* newRndFloatArr(size_t sz, size_t left, size_t right) {
 	float* arr = new float[sz];
 	for (int i = 0; i < sz; i++) {
-		*(arr + i) = left + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (right - left)));  // генерация случайного вещественного числа в диапазоне [left; right].
+		*(arr + i) = left + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (right - left)));  // РіРµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ РІРµС‰РµСЃС‚РІРµРЅРЅРѕРіРѕ С‡РёСЃР»Р° РІ РґРёР°РїР°Р·РѕРЅРµ [left; right].
 	}
 	return arr;
 }

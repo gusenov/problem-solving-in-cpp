@@ -1,6 +1,6 @@
 #include "arr.hpp"
 
-// Перегрузка функций вывода массива на экран:
+// РџРµСЂРµРіСЂСѓР·РєР° С„СѓРЅРєС†РёР№ РІС‹РІРѕРґР° РјР°СЃСЃРёРІР° РЅР° СЌРєСЂР°РЅ:
 
 void printArr(int* arr, size_t sz) {
     for (size_t i = 0; i < sz; i++)
@@ -14,7 +14,7 @@ void printArr(float* arr, size_t sz) {
     std::cout << std::endl;
 }
 
-// Перегрузка функций копирования массива:
+// РџРµСЂРµРіСЂСѓР·РєР° С„СѓРЅРєС†РёР№ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РјР°СЃСЃРёРІР°:
 
 int* cpArrFromTo(int* from, int* to, size_t sz) {
 	return (int*)memcpy(to, from, sz * sizeof(int));
@@ -24,7 +24,7 @@ float* cpArrFromTo(float* from, float* to, size_t sz) {
 	return (float*)memcpy(to, from, sz * sizeof(float));
 }
 
-// Перегрузка функций клонирования массива:
+// РџРµСЂРµРіСЂСѓР·РєР° С„СѓРЅРєС†РёР№ РєР»РѕРЅРёСЂРѕРІР°РЅРёСЏ РјР°СЃСЃРёРІР°:
 
 int* newArrFrom(int* arr, size_t sz) {
 	int* copy = new int[sz];

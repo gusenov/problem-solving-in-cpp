@@ -3,46 +3,46 @@
 
 using namespace std;
 
-// Конструктор:
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ:
 template <class T>
 Node<T>::Node(const T& item, Node<T> *ptrnext): data(item), next(ptrnext) {
 }
 
-// Вставка следующим:
+// Р’СЃС‚Р°РІРєР° СЃР»РµРґСѓСЋС‰РёРј:
 template <class T>
 void Node<T>::InsertAfter(Node<T> *p) {
 	p->next = next;
 	next = p;
 }
 
-// Удаление следующего:
+// РЈРґР°Р»РµРЅРёРµ СЃР»РµРґСѓСЋС‰РµРіРѕ:
 template <class T>
 Node<T> * Node<T>::DeleteAfter(void) {
-	if (next == 0)  // если нет следующего, возвратить NULL:
+	if (next == 0)  // РµСЃР»Рё РЅРµС‚ СЃР»РµРґСѓСЋС‰РµРіРѕ, РІРѕР·РІСЂР°С‚РёС‚СЊ NULL:
 		return 0;
 	
-	Node<T> *tempPtr = next;  // сохранить адрес удаляемого узла.
-	next = tempPtr->next;  // текущий указывает на узел, следующий за удаляемым.
+	Node<T> *tempPtr = next;  // СЃРѕС…СЂР°РЅРёС‚СЊ Р°РґСЂРµСЃ СѓРґР°Р»СЏРµРјРѕРіРѕ СѓР·Р»Р°.
+	next = tempPtr->next;  // С‚РµРєСѓС‰РёР№ СѓРєР°Р·С‹РІР°РµС‚ РЅР° СѓР·РµР», СЃР»РµРґСѓСЋС‰РёР№ Р·Р° СѓРґР°Р»СЏРµРјС‹Рј.
 	
-	return tempPtr;  // возвратить указатель на удаляемый узел.
+	return tempPtr;  // РІРѕР·РІСЂР°С‚РёС‚СЊ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СѓРґР°Р»СЏРµРјС‹Р№ СѓР·РµР».
 }
 
-// Получение адреса следующего:
+// РџРѕР»СѓС‡РµРЅРёРµ Р°РґСЂРµСЃР° СЃР»РµРґСѓСЋС‰РµРіРѕ:
 template <class T>
 Node<T> * Node<T>::NextNode(void) const {
 	return next;
 }
 
-// Создание связного списка из массива:
+// РЎРѕР·РґР°РЅРёРµ СЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР° РёР· РјР°СЃСЃРёРІР°:
 template <class T>
 Node<T> *BuildNodeList(T M[], int n) {
 	Node<T> *head = 0;
 	for (int i = n - 1; i >= 0; i--)
 		head = new Node<T>(M[i], head);
-	return head;  // возвращает указатель на голову списка.
+	return head;  // РІРѕР·РІСЂР°С‰Р°РµС‚ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°.
 }
 
-// Печать связного списка:
+// РџРµС‡Р°С‚СЊ СЃРІСЏР·РЅРѕРіРѕ СЃРїРёСЃРєР°:
 template <class T>
 void PrintNodeList(Node<T> * head) {
 	if (!head) {

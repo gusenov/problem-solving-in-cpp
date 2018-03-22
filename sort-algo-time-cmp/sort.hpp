@@ -3,27 +3,27 @@
 
 #include <cstdlib>
 
-// Функции isNonDesc возвращают true, если массив неубывающий по значению элементов:
+// Р¤СѓРЅРєС†РёРё isNonDesc РІРѕР·РІСЂР°С‰Р°СЋС‚ true, РµСЃР»Рё РјР°СЃСЃРёРІ РЅРµСѓР±С‹РІР°СЋС‰РёР№ РїРѕ Р·РЅР°С‡РµРЅРёСЋ СЌР»РµРјРµРЅС‚РѕРІ:
 bool isNonDesc(int* arr, size_t n);
 bool isNonDesc(float* arr, size_t n);
 
-// Сортировка выбором:
+// РЎРѕСЂС‚РёСЂРѕРІРєР° РІС‹Р±РѕСЂРѕРј:
 void selectionSort(int* arr, size_t n);
 void selectionSort(float* arr, size_t n);
 
-// Сортировка пузырьком:
+// РЎРѕСЂС‚РёСЂРѕРІРєР° РїСѓР·С‹СЂСЊРєРѕРј:
 void bubbleSort(int *arr, size_t n);
 void bubbleSort(float *arr, size_t n);
 
-// Сортировка вставками:
+// РЎРѕСЂС‚РёСЂРѕРІРєР° РІСЃС‚Р°РІРєР°РјРё:
 void insertionSort(int *arr, size_t n);
 void insertionSort(float *arr, size_t n);
 
-// Быстрая сортировка:
+// Р‘С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°:
 void quickSort(int *arr, size_t n);
 void quickSort(float *arr, size_t n);
 
-// Сортировка Шелла:
+// РЎРѕСЂС‚РёСЂРѕРІРєР° РЁРµР»Р»Р°:
 void shellSort(int *arr, size_t n);
 void shellSort(float *arr, size_t n);
 
