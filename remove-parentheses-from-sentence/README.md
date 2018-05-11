@@ -1,0 +1,1 @@
+ ![RemoveParenthesesFromSentence.exe](screenshot.png)
