@@ -1,0 +1,1 @@
+ ![InsertStringAtPosition.exe](screenshot.png)
