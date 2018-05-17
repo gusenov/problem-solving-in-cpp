@@ -1,0 +1,1 @@
+- [5arctg(x)-(1/4)*arccos(x)*( (x + 3|x-y| + x*x) / (|x-y|z + x*x) ), x = 0.1722, y = 6.33, z = 3.25e-4 - Wolfram|Alpha](https://www.wolframalpha.com/input/?i=5arctg(x)-(1%2F4)*arccos(x)*(+(x+%2B+3%7Cx-y%7C+%2B+x*x)+%2F+(%7Cx-y%7Cz+%2B+x*x)+),+x+%3D+0.1722,+y+%3D+6.33,+z+%3D+3.25e-4)
