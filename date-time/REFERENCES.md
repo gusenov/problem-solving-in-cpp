@@ -1,0 +1,3 @@
+- [integer literal - cppreference.com](https://en.cppreference.com/w/cpp/language/integer_literal)
+- [C Language Numeric Data Types - dummies](http://www.dummies.com/programming/c/c-language-numeric-data-types/)
+- [Запоминалка количества дней в месяцах | Запоминалки](http://zapominalki.ru/zapominalka-kolichestva-dnej-v-mesyacax/)
