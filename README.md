@@ -54,6 +54,7 @@
 - [Рекурсивный ввод последовательности чисел](recursive-programming/recursion-user-input/)
 - [Рекурсивный вывод последовательности чисел](recursive-programming/recursion-print-array/)
 - [Рекурсивный перевод числа из десятичной системы счисления в двоичную](recursive-programming/recursion-dec-to-bin/)
+- [Функция Аккермана](ackermann-foo/)
 
 ## Операторы
 
