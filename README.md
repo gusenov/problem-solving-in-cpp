@@ -71,6 +71,7 @@
 - [Класс Triangle, описывающий треугольник](solution-of-triangles/)
 - [Определение, является ли треугольник со сторонами a, b, c равнобедренным](is-isosceles-triangle/)
 - [Обратная матрица](matrix/invertible-matrix/)
+- [Векторное умножение](vector3/)
 
 ## Физика
 

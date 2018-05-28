@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1527526923 source:c:\users\user\documents\vector3\p3201.cpp
+	<iostream>
+	<math.h>
+
+1527530688 source:c:\users\user\documents\vector3\main.cpp
+	<iostream>
+	<math.h>
+

@@ -1,0 +1,1 @@
+![Векторы](problem-statement.jpg)
