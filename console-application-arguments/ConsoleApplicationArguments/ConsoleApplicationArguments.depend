@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1527515796 source:c:\users\user\documents\consoleapplicationarguments\main.cpp
+	<iostream>
+	<fstream>
+	<cstring>
+

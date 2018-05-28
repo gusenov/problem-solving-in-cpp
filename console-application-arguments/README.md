@@ -1,0 +1,1 @@
+![Аргументы main, код завершения](problem-statement.jpg)

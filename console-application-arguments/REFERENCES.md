@@ -1,0 +1,8 @@
+- [Main function - cppreference.com](http://en.cppreference.com/w/cpp/language/main_function)
+- [C++ Programming/Code/Statements/Functions - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/C%2B%2B_Programming/Code/Statements/Functions#main)
+- [отличие cerr и cout [c++] - Помощь студентам  - Форум программистов](http://www.programmersforum.ru/showthread.php?t=166106)
+- [How do you declare string constants in C? - Stack Overflow](https://stackoverflow.com/questions/1431576/how-do-you-declare-string-constants-in-c)
+- [C library function - strcmp()](https://www.tutorialspoint.com/c_standard_library/c_function_strcmp.htm)
+- [c++ - Copy a file in a sane, safe and efficient way - Stack Overflow](https://stackoverflow.com/questions/10195343/copy-a-file-in-a-sane-safe-and-efficient-way)
+- [ios::fail - C++ Reference](http://www.cplusplus.com/reference/ios/ios/fail/)
+- [c++ - How to get error message when ifstream open fails - Stack Overflow](https://stackoverflow.com/questions/17337602/how-to-get-error-message-when-ifstream-open-fails)
