@@ -1,13 +1,17 @@
-#include <iostream>
-#include <fstream>
+#include <iostream>  // подключаем стандартную библиотеку ввода/вывода.
+#include <fstream>   // библиотека для работы с файлами.
 
+// Определение констант:
 #define DEFAULT_STRING_SIZE 255  // длина строки по умолчанию.
 #define NEW_LINE '\n'
 
+// Используем стандартное пространство имён.
+// Чтобы например, писать просто cout вместо std::cout.
 using namespace std;
 
-// Пользовательский класс String:
+// Объявление пользовательского класса String:
 class String {
+	// Дружественные функции:
 	friend ostream& operator<<(ostream&, String&);  // перегрузка оператора вывода.
 	friend istream& operator>>(istream&, String&);  // перегрузка оператора ввода.
 	
@@ -27,7 +31,10 @@ public:
 private:
 	char *_str;
 	
+	// Статический метод для определения длины строки:
 	static long unsigned int string_length(const char *s);
+	
+	// Статический метод для копирования строки:
 	static char* string_copy(char *dest, const char *src);
 };
 
@@ -49,18 +56,22 @@ char* String::string_copy(char *dest, const char *src) {
 	return dest;
 }
 
+// Конструктор с параметром задающим длину строки:
 String::String(long unsigned int sz): _str(new char[sz]) {
 	this->_str[0] = '\0';
 }
 
+// Конструктор с параметром через который передается строка для инициализации:
 String::String(const char *str): _str(new char[String::string_length(str) + 1]) {
 	String::string_copy(this->_str, str);
 }
 
+// Деструктор:
 String::~String() {
 	delete[] this->_str;
 }
 
+// Метод ввода строки с клавиатуры:
 void String::Set() {
 	
 	char *ptr = this->_str;
@@ -71,15 +82,20 @@ void String::Set() {
 	*ptr = '\0';
 }
 
+// Метод вывода строки:
 void String::print() {
 	cout << this->_str << endl;
 }
 
+// Переопределение оператора присваивания = (равно):
 String& String::operator=(const String& s) {
+	String tmp(s._str);  // создание временной строки.
+	
+	// Обмен значений:
 	char *ptr = this->_str;
-	String tmp(s._str);
 	this->_str = tmp._str;
 	tmp._str = ptr;
+	
 	return *this;
 }
 
@@ -95,31 +111,35 @@ char* String::Run() {
 	}
 }
 
+// Переопределение оператора перенаправления <<:
+// (нужно чтобы можно было использовать объект строки например с cout)
 ostream& operator<<(ostream& stream, String& ob) {
 	stream << ob._str;
 	return stream;
 }
 
+// Переопределение оператора перенаправления >>:
+// (нужно чтобы можно было использовать объект строки например с cin)
 istream& operator>>(istream& stream, String& ob){
 	stream >> ob._str;
 	return stream;
 }
 
 int main(int argc, char** argv) {
-	fstream fout("output.txt", ios::out);
+	fstream fout("output.txt", ios::out);  // открыть файл для записи.
 	
-	String S1;
-	S1.Set();
-	S1.print();
+	String S1;  // создание экземпляра строки.
+	S1.Set();  // ввод строки.
+	S1.print();  // вывод строки.
 	fout << S1 << endl;  // вывод в файл исходной строки.
 	
-	S1.Run();
-	String S2;
-	S2 = S1;
-	S2.print();
+	S1.Run();  // удалить символ, стоящий посередине строки, если длина строки нечетная.
+	String S2;  // создание экземпляра строки.
+	S2 = S1;  // присваивание строки S1 строке S2.
+	S2.print();  // вывод строки.
 	fout << S2 << endl;  // вывод в файл преобразованной строки.
 
-	fout.close();
+	fout.close();  // закрыть файл.
 	return 0;
 }
 
