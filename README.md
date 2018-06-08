@@ -68,6 +68,7 @@
 - [Изучение механизма простого и множественного наследования](oop/multiple-inheritance/)
 - [Класс для вычисления выражения 5arctg(x)-(1/4)*arccos(x)*( (x + 3|x-y| + x*x) / (|x-y|z + x*x) )](oop/arctg-arccos-abs/)
 - [Класс с дружественными функциями для вычисления выражения 5arctg(x)-(1/4)*arccos(x)*( (x + 3|x-y| + x*x) / (|x-y|z + x*x) )](oop/arctg-arccos-abs-friend/)
+- [Множественное наследование на примере книг](oop/books-multiple-inheritance/)
 
 ## Математика
 
