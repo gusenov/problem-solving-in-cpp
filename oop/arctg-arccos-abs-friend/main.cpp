@@ -49,9 +49,13 @@ void run(X *ptr) {
 }
 
 int main() {
-	X *ptr = new X(0.1722, 6.33, 3.25e-4);
-	run(ptr);
-	print(ptr);
-	delete ptr;
+	double x = 0.1722, y = 6.33, z = 3.25e-4;
+	if (-1 <= x && x <= 1 && z * fabs(x - y) + pow(x, 2) != 0) {  // ОДЗ.
+		X *ptr = new X(x, y, z);
+		run(ptr);
+		print(ptr);
+		delete ptr;
+	} else {
+		cout << "Выражение не определено!" << endl;
+	}
 }
-
