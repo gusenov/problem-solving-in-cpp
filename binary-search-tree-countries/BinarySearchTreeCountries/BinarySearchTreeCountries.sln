@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinarySearchTreeCountries", "BinarySearchTreeCountries\BinarySearchTreeCountries.vcxproj", "{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Debug|x64.ActiveCfg = Debug|x64
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Debug|x64.Build.0 = Debug|x64
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Debug|x86.ActiveCfg = Debug|Win32
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Debug|x86.Build.0 = Debug|Win32
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Release|x64.ActiveCfg = Release|x64
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Release|x64.Build.0 = Release|x64
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Release|x86.ActiveCfg = Release|Win32
+		{44ABD47B-1B1F-4FF4-A3A1-0E9144D899EF}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A058B0F1-E40F-4F70-87D1-F8439CC22C3C}
+	EndGlobalSection
+EndGlobal
