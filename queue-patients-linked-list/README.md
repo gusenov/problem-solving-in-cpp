@@ -1,0 +1,1 @@
+![задание](problem-statement.jpeg)
