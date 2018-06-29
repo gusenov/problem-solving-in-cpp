@@ -6,16 +6,16 @@ using namespace std;
 
 const int STRING_BUFFER_SIZE = 128;
 
-// Структура содержащая информацию о пациенте:
+// РЎС‚СЂСѓРєС‚СѓСЂР° СЃРѕРґРµСЂР¶Р°С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїР°С†РёРµРЅС‚Рµ:
 typedef struct Patient {
-	char surname[STRING_BUFFER_SIZE];     // фамилия.
-	char name[STRING_BUFFER_SIZE];        // имя.
-	char secondName[STRING_BUFFER_SIZE];  // отчество.
-	int age;                              // возраст.
-	char diagnosis[STRING_BUFFER_SIZE];   // диагноз.
+	char surname[STRING_BUFFER_SIZE];     // С„Р°РјРёР»РёСЏ.
+	char name[STRING_BUFFER_SIZE];        // РёРјСЏ.
+	char secondName[STRING_BUFFER_SIZE];  // РѕС‚С‡РµСЃС‚РІРѕ.
+	int age;                              // РІРѕР·СЂР°СЃС‚.
+	char diagnosis[STRING_BUFFER_SIZE];   // РґРёР°РіРЅРѕР·.
 } Data;
 
-// Структура содержащая информацию об очереди:
+// РЎС‚СЂСѓРєС‚СѓСЂР° СЃРѕРґРµСЂР¶Р°С‰Р°СЏ РёРЅС„РѕСЂРјР°С†РёСЋ РѕР± РѕС‡РµСЂРµРґРё:
 struct Queue {
 	Data data;
 	struct Queue *next;
@@ -41,21 +41,21 @@ void search_by_diagnosis(Queue*);
 Queue* delete_queue(Queue*);
 
 
-// Переход на кириллицу:
+// РџРµСЂРµС…РѕРґ РЅР° РєРёСЂРёР»Р»РёС†Сѓ:
 void cyrillic(void) {
-	// Эти строки нужны для правильного отображения кириллицы:
+	// Р­С‚Рё СЃС‚СЂРѕРєРё РЅСѓР¶РЅС‹ РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєРёСЂРёР»Р»РёС†С‹:
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 	
-	// Также надо изменить шрифт в консоли на Lucida Console.
-	// Для замены шрифта кликаете правой кнопкой 
-	// на надписи «Командная строка» окна консоли. 
-	// В открывшемся меню выбираете «Свойства». 
-	// В появившемся окне выбираете вкладку «Шрифт» 
-	// и там выбираете «Lucida Console». 
+	// РўР°РєР¶Рµ РЅР°РґРѕ РёР·РјРµРЅРёС‚СЊ С€СЂРёС„С‚ РІ РєРѕРЅСЃРѕР»Рё РЅР° Lucida Console.
+	// Р”Р»СЏ Р·Р°РјРµРЅС‹ С€СЂРёС„С‚Р° РєР»РёРєР°РµС‚Рµ РїСЂР°РІРѕР№ РєРЅРѕРїРєРѕР№ 
+	// РЅР° РЅР°РґРїРёСЃРё В«РљРѕРјР°РЅРґРЅР°СЏ СЃС‚СЂРѕРєР°В» РѕРєРЅР° РєРѕРЅСЃРѕР»Рё. 
+	// Р’ РѕС‚РєСЂС‹РІС€РµРјСЃСЏ РјРµРЅСЋ РІС‹Р±РёСЂР°РµС‚Рµ В«РЎРІРѕР№СЃС‚РІР°В». 
+	// Р’ РїРѕСЏРІРёРІС€РµРјСЃСЏ РѕРєРЅРµ РІС‹Р±РёСЂР°РµС‚Рµ РІРєР»Р°РґРєСѓ В«РЁСЂРёС„С‚В» 
+	// Рё С‚Р°Рј РІС‹Р±РёСЂР°РµС‚Рµ В«Lucida ConsoleВ». 
 }
 
-// Печать пациента:
+// РџРµС‡Р°С‚СЊ РїР°С†РёРµРЅС‚Р°:
 void print_patient(const Data& patient) {
 	printf("%-16s %-16s %-16s %-8i %-16s\n"
 		, patient.surname
@@ -65,7 +65,7 @@ void print_patient(const Data& patient) {
 		, patient.diagnosis);
 }
 
-// Создание новой очереди:
+// РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕР№ РѕС‡РµСЂРµРґРё:
 Queue* push(Queue* previous, const Data data) {
 	Queue* n = new Queue;
 	n->data = data;
@@ -78,17 +78,17 @@ Queue* push(Queue* previous, const Data data) {
 	return n;
 }
 
-// Извлечение пациента из начала из очереди:
+// РР·РІР»РµС‡РµРЅРёРµ РїР°С†РёРµРЅС‚Р° РёР· РЅР°С‡Р°Р»Р° РёР· РѕС‡РµСЂРµРґРё:
 Queue* pop(Queue** queue) {
-	if (!queue) { cout << "Очередь пуста!" << endl; }
+	if (!queue) { cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°!" << endl; }
 	Queue* result = *queue;
 	*queue = result->next;
 	return result;
 }
 
-// Очистка очереди:
+// РћС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё:
 Queue* delete_queue(Queue* queue) {
-	// Освобождение памяти, выделенной для элементов очереди:
+	// РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё, РІС‹РґРµР»РµРЅРЅРѕР№ РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ РѕС‡РµСЂРµРґРё:
 	Queue* current = queue;
 	Queue* del = NULL;
 	while (current) {
@@ -99,28 +99,27 @@ Queue* delete_queue(Queue* queue) {
 	return NULL;
 }
 
-// Чтение данных из файла:
+// Р§С‚РµРЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°:
 Queue* input_queue_from_file(void) {
 	Queue* head = NULL;
 	
-	cout << "Введите имя файла, содержащего информацию о пациентах -> ";
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°, СЃРѕРґРµСЂР¶Р°С‰РµРіРѕ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РїР°С†РёРµРЅС‚Р°С… -> ";
 	
 	char fname[STRING_BUFFER_SIZE];
 	scanf("%s", fname);
 	
-	// Считывание данных из файла и добавление их в очередь:
+	// РЎС‡РёС‚С‹РІР°РЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р° Рё РґРѕР±Р°РІР»РµРЅРёРµ РёС… РІ РѕС‡РµСЂРµРґСЊ:
 	FILE* f1 = fopen(fname, "r");
 	if (f1 == NULL) {
-		printf("Невозможно открыть файл '%s'!\n", fname);
+		printf("РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» '%s'!\n", fname);
 		return NULL;
 	}
 	
-	int z, cnt;
-	fscanf(f1, "%i", &cnt);
+	int z;
 	
 	Queue* current = NULL;
 	Data x;
-	for (int i = 0; i < cnt; i++) {
+	while (1) {
 		
 		z = fscanf(f1, "%s%s%s%i%s\n"
 			, &x.surname
@@ -129,89 +128,79 @@ Queue* input_queue_from_file(void) {
 			, &x.age
 			, &x.diagnosis);
 		
+		if (z == EOF) break;
+		
 		current = push(current, x);
-		if (i == 0) head = current;
+		if (!head) head = current;
 	}
 	
 	fclose(f1);
 	
-	if (z == EOF) {
-		printf("Не хватает данных в файле!\n");
-		return delete_queue(head);
-	}
-	
 	return head;
 }
 
-// Вывод данных в файл:
+// Р’С‹РІРѕРґ РґР°РЅРЅС‹С… РІ С„Р°Р№Р»:
 void output_queue_to_file(Queue* queue) {
-	cout << "Введите имя файла, в который выводится информация обо всех пациентах в порядке очереди -> ";
+	cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°, РІ РєРѕС‚РѕСЂС‹Р№ РІС‹РІРѕРґРёС‚СЃСЏ РёРЅС„РѕСЂРјР°С†РёСЏ РѕР±Рѕ РІСЃРµС… РїР°С†РёРµРЅС‚Р°С… РІ РїРѕСЂСЏРґРєРµ РѕС‡РµСЂРµРґРё -> ";
 	
 	char fname[STRING_BUFFER_SIZE];
 	scanf("%s", fname);
 	
 	FILE* f1 = fopen(fname, "w");
 	if (f1 == NULL) {
-		printf("Невозможно открыть файл '%s'!\n", fname);
+		printf("РќРµРІРѕР·РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» '%s'!\n", fname);
 		return;
 	}
 	
-	int count = 0;
-	Queue* next = queue;
-	while (next) {
-		count++;
-		next = next->next;
-	}
-	
-	fprintf(f1, "%d\n", count);
-	
-	// (сами пациенты при этом из очереди не извлекаются)
-	if (count > 0) do {
+	// (СЃР°РјРё РїР°С†РёРµРЅС‚С‹ РїСЂРё СЌС‚РѕРј РёР· РѕС‡РµСЂРµРґРё РЅРµ РёР·РІР»РµРєР°СЋС‚СЃСЏ)
+	while (queue) {
 		Data* x = &queue->data;
 		fprintf(f1, "%s %s %s %i %s ", x->surname, x->name, x->secondName, x->age, x->diagnosis);
-	} while (queue = queue->next);
+		queue = queue->next;
+	}
 
 	fclose(f1);
 }
 
-// Добавление в конец очереди:
+// Р”РѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё:
 Queue* input_patient_to_queue(Queue* queue) {	
-	cout << "Введите данные о пациенте в формате:\nфамилия имя отчество возраст диагноз" << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РґР°РЅРЅС‹Рµ Рѕ РїР°С†РёРµРЅС‚Рµ РІ С„РѕСЂРјР°С‚Рµ:\nС„Р°РјРёР»РёСЏ РёРјСЏ РѕС‚С‡РµСЃС‚РІРѕ РІРѕР·СЂР°СЃС‚ РґРёР°РіРЅРѕР·" << endl;
 	
 	Data x;
 	scanf("%s%s%s%i%s", &x.surname, &x.name, &x.secondName, &x.age, &x.diagnosis);
 	
+	while (queue && queue->next) queue = queue->next;
 	Queue* newNode = push(queue, x);
 	
 	return newNode;
 }
 
-// Просмотр очереди:
+// РџСЂРѕСЃРјРѕС‚СЂ РѕС‡РµСЂРµРґРё:
 void print_queue_to_screen(Queue* queue) {
 	if (!queue) {
-		cout << "Очередь пуста!" << endl;
+		cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°!" << endl;
 		return;
 	}
 	
-	cout << "Информация обо всех пациентах в порядке очереди:" << endl;
-	// (сами пациенты при этом из очереди не извлекаются)
+	cout << "РРЅС„РѕСЂРјР°С†РёСЏ РѕР±Рѕ РІСЃРµС… РїР°С†РёРµРЅС‚Р°С… РІ РїРѕСЂСЏРґРєРµ РѕС‡РµСЂРµРґРё:" << endl;
+	// (СЃР°РјРё РїР°С†РёРµРЅС‚С‹ РїСЂРё СЌС‚РѕРј РёР· РѕС‡РµСЂРµРґРё РЅРµ РёР·РІР»РµРєР°СЋС‚СЃСЏ)
 	do {
 		print_patient(queue->data);
 	} while (queue = queue->next);
 }
 
-// Поиск по месту в очереди:
+// РџРѕРёСЃРє РїРѕ РјРµСЃС‚Сѓ РІ РѕС‡РµСЂРµРґРё:
 void search_by_place_in_queue(Queue* patientQueue) {
 	if (!patientQueue) {
-		cout << "Очередь пуста!" << endl;
+		cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°!" << endl;
 		return;
 	}
 	
-	cout << "Введите номер в очереди -> ";
+	cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РІ РѕС‡РµСЂРµРґРё -> ";
 	int no;
 	cin >> no;
 	
-	cout << "Информация о пациенте на данном месте:" << endl;
+	cout << "РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїР°С†РёРµРЅС‚Рµ РЅР° РґР°РЅРЅРѕРј РјРµСЃС‚Рµ:" << endl;
 	
 	int found = 0;
 	do {
@@ -222,24 +211,24 @@ void search_by_place_in_queue(Queue* patientQueue) {
 	} while (patientQueue = patientQueue->next);
 	
 	if (found == 0) {
-		printf("Ничего не найдено!\n");
+		printf("РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!\n");
 	}
 }
 
-// Поиск по диагнозу:
+// РџРѕРёСЃРє РїРѕ РґРёР°РіРЅРѕР·Сѓ:
 void search_by_diagnosis(Queue* patientQueue) {
 	if (!patientQueue) {
-		cout << "Очередь пуста!" << endl;
+		cout << "РћС‡РµСЂРµРґСЊ РїСѓСЃС‚Р°!" << endl;
 		return;
 	}
 	
 	char b[STRING_BUFFER_SIZE];
-	printf("Введите диагноз -> ");
+	printf("Р’РІРµРґРёС‚Рµ РґРёР°РіРЅРѕР· -> ");
 	
 	gets(b);
     b[strcspn(b, "\n")] = '\0';
     
-    cout << "Информация обо всех пациентах с этим диагнозом с указанием места в очереди:" << endl;
+    cout << "РРЅС„РѕСЂРјР°С†РёСЏ РѕР±Рѕ РІСЃРµС… РїР°С†РёРµРЅС‚Р°С… СЃ СЌС‚РёРј РґРёР°РіРЅРѕР·РѕРј СЃ СѓРєР°Р·Р°РЅРёРµРј РјРµСЃС‚Р° РІ РѕС‡РµСЂРµРґРё:" << endl;
 
 	int found = 0;
 	do {
@@ -250,84 +239,84 @@ void search_by_diagnosis(Queue* patientQueue) {
 	} while (patientQueue = patientQueue->next);
 	
 	if (found == 0) {
-		printf("Ничего не найдено!\n");
+		printf("РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ!\n");
 	}
 }
 
-// Показать меню для осуществления диалога с пользователем:
+// РџРѕРєР°Р·Р°С‚СЊ РјРµРЅСЋ РґР»СЏ РѕСЃСѓС‰РµСЃС‚РІР»РµРЅРёСЏ РґРёР°Р»РѕРіР° СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј:
 void showMenu(void) {
-	cout << "Меню:" << endl;
-	cout << "1) чтение данных из файла;" << endl;
-	cout << "2) вывод данных в файл;" << endl;
-	cout << "3) добавление в конец очереди;" << endl;
-	cout << "4) извлечение из очереди;" << endl;
-	cout << "5) просмотр очереди;" << endl;
-	cout << "6) поиск по месту в очереди;" << endl;
-	cout << "7) поиск по диагнозу;" << endl;
-	cout << "8) очистка очереди;" << endl;
-	cout << "9) завершение работы." << endl;
+	cout << "РњРµРЅСЋ:" << endl;
+	cout << "1) С‡С‚РµРЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°;" << endl;
+	cout << "2) РІС‹РІРѕРґ РґР°РЅРЅС‹С… РІ С„Р°Р№Р»;" << endl;
+	cout << "3) РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё;" << endl;
+	cout << "4) РёР·РІР»РµС‡РµРЅРёРµ РёР· РѕС‡РµСЂРµРґРё;" << endl;
+	cout << "5) РїСЂРѕСЃРјРѕС‚СЂ РѕС‡РµСЂРµРґРё;" << endl;
+	cout << "6) РїРѕРёСЃРє РїРѕ РјРµСЃС‚Сѓ РІ РѕС‡РµСЂРµРґРё;" << endl;
+	cout << "7) РїРѕРёСЃРє РїРѕ РґРёР°РіРЅРѕР·Сѓ;" << endl;
+	cout << "8) РѕС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё;" << endl;
+	cout << "9) Р·Р°РІРµСЂС€РµРЅРёРµ СЂР°Р±РѕС‚С‹." << endl;
 }
 
-// Ввод пункта меню пользователем:
+// Р’РІРѕРґ РїСѓРЅРєС‚Р° РјРµРЅСЋ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј:
 int selectMenuItem(void) {
 	int userChoice;
-	cout << "Введите номер пункта меню -> ";
+	cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСѓРЅРєС‚Р° РјРµРЅСЋ -> ";
 	cin >> userChoice;
 	fgetc(stdin);
 	return userChoice;
 }
 
-// Главная функция:
+// Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ:
 int main(int argc, char** argv) {
-	cyrillic();  // вкл. кириллицу.
+	cyrillic();  // РІРєР». РєРёСЂРёР»Р»РёС†Сѓ.
 	
-	cout << "Программа для организации очереди пациентов." << endl;
+	cout << "РџСЂРѕРіСЂР°РјРјР° РґР»СЏ РѕСЂРіР°РЅРёР·Р°С†РёРё РѕС‡РµСЂРµРґРё РїР°С†РёРµРЅС‚РѕРІ." << endl;
 	
 	Queue* myQueue = NULL;
 	Queue* tmp = NULL;
 	
-	showMenu();  // показать меню.
+	showMenu();  // РїРѕРєР°Р·Р°С‚СЊ РјРµРЅСЋ.
 	int userChoice;
 	while ((userChoice = selectMenuItem()) != 9) {
 		switch(userChoice) {
 		case 1:
-			myQueue = delete_queue(myQueue);  // очистка очереди, если нужно.
-			myQueue = input_queue_from_file();  // чтение данных из файла.
+			myQueue = delete_queue(myQueue);  // РѕС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё, РµСЃР»Рё РЅСѓР¶РЅРѕ.
+			myQueue = input_queue_from_file();  // С‡С‚РµРЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°.
 			break;
 		case 2:
-			output_queue_to_file(myQueue);  // вывод данных в файл.
+			output_queue_to_file(myQueue);  // РІС‹РІРѕРґ РґР°РЅРЅС‹С… РІ С„Р°Р№Р».
 			break;
 		case 3:
-			tmp = input_patient_to_queue(myQueue);  // добавление в конец очереди.
+			tmp = input_patient_to_queue(myQueue);  // РґРѕР±Р°РІР»РµРЅРёРµ РІ РєРѕРЅРµС† РѕС‡РµСЂРµРґРё.
 			if (!myQueue) myQueue = tmp;
 			break;
 		case 4:
 			tmp = pop(&myQueue);
-			cout << "Информация о пациенте:" << endl;
+			cout << "РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїР°С†РёРµРЅС‚Рµ:" << endl;
 			print_patient(tmp->data);
 			delete tmp;			
 			break;
 		case 5:
-			print_queue_to_screen(myQueue);  // просмотр очереди.
+			print_queue_to_screen(myQueue);  // РїСЂРѕСЃРјРѕС‚СЂ РѕС‡РµСЂРµРґРё.
 			break;
 		case 6:
-			search_by_place_in_queue(myQueue);  // поиск по месту в очереди.
+			search_by_place_in_queue(myQueue);  // РїРѕРёСЃРє РїРѕ РјРµСЃС‚Сѓ РІ РѕС‡РµСЂРµРґРё.
 			break;
 		case 7:
-			search_by_diagnosis(myQueue);  // поиск по диагнозу.
+			search_by_diagnosis(myQueue);  // РїРѕРёСЃРє РїРѕ РґРёР°РіРЅРѕР·Сѓ.
 			break;
 		case 8:
-			myQueue = delete_queue(myQueue);  // очистка очереди.
+			myQueue = delete_queue(myQueue);  // РѕС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё.
 			break;
 		default:
 			break;
 		}
 	}
 	
-	// Завершение работы:
-	delete_queue(myQueue);  // очистка очереди.
+	// Р—Р°РІРµСЂС€РµРЅРёРµ СЂР°Р±РѕС‚С‹:
+	delete_queue(myQueue);  // РѕС‡РёСЃС‚РєР° РѕС‡РµСЂРµРґРё.
 	
-	system("pause");  // пауза перед выходом.
+	system("pause");  // РїР°СѓР·Р° РїРµСЂРµРґ РІС‹С…РѕРґРѕРј.
 	return 0;
 }
 
