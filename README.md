@@ -16,6 +16,7 @@
 - [Удаление из строки S последней подстроки, совпадающей с S₀](remove-last-substring/)
 - [Вставка подстроки в позицию N строки S](insert-string-at-position/)
 - [Удаление содержимого круглых скобок](remove-parentheses-from-sentence/)
+- [Удаление одинаковых слов](remove-same-words/)
 
 ## Дата и время
 
