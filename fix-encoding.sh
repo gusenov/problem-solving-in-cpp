@@ -1,7 +1,8 @@
 #!/bin/bash
 #set -x  # echo on
 
-convert_files_encoding_sh="/home/abbas/repo/lang/sh/convert-files-encoding-sh/convert-files-encoding.sh"
+convert_files_encoding_sh="~/repo/lang/sh/convert-files-encoding-sh/convert-files-encoding.sh"
+eval convert_files_encoding_sh=$convert_files_encoding_sh
 
 target_project_dir="$(pwd)/"  # should include a trailing slash.
 
