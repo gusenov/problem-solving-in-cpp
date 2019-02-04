@@ -1,0 +1,21 @@
+digraph G {
+
+node [ shape = "rect" ]
+
+{ rank = same; A; }
+{ rank = same; B; C; D; E; }
+
+A [ label = "NumbersOutput" ]
+A1 [shape = point, width = 0.01, height = 0.01];
+B [ label = "EvenNumbersOutput" ]
+C [ label = "OddNumbersOutput" ]
+D [ label = "PositiveNumbersOutput" ]
+E [ label = "NegativeNumbersOutput" ]
+
+A -> A1 [style = invis]
+A1 -> { B, C, D, E } [style = invis];
+
+{ B, C, D, E } -> A1 [dir = none];
+A1 -> A;
+
+}
