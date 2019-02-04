@@ -77,6 +77,10 @@
 - [Классы Cashbox (касса) и Person](oop/cashbox/)
 - [Абстрактный класс для вывода чисел и его наследники](oop/print-numbers/)
 
+## Шаблоны
+
+- [Класс-контейнер Pair](templates/pair-template/)
+
 ## Математика
 
 - [Класс Triangle, описывающий треугольник](solution-of-triangles/)
