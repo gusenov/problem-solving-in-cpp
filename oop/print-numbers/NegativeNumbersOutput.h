@@ -3,7 +3,7 @@
 
 #include "NumbersOutput.h"
 
-// Класс вывода отрицательных чисел:
+// РљР»Р°СЃСЃ РІС‹РІРѕРґР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… С‡РёСЃРµР»:
 class NegativeNumbersOutput : public NumbersOutput
 {
 	public:

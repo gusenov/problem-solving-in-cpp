@@ -1,7 +1,7 @@
 #ifndef NUMBERSOUTPUT_H
 #define NUMBERSOUTPUT_H
 
-// Абстрактный класс:
+// РђР±СЃС‚СЂР°РєС‚РЅС‹Р№ РєР»Р°СЃСЃ:
 class NumbersOutput
 {
 	public:

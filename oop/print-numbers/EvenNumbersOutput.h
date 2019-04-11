@@ -3,7 +3,7 @@
 
 #include "NumbersOutput.h"
 
-// Класс вывода четных чисел:
+// РљР»Р°СЃСЃ РІС‹РІРѕРґР° С‡РµС‚РЅС‹С… С‡РёСЃРµР»:
 class EvenNumbersOutput : public NumbersOutput
 {
 	public:

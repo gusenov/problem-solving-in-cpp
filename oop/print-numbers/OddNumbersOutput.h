@@ -3,7 +3,7 @@
 
 #include "NumbersOutput.h"
 
-// Класс вывода нечетных чисел:
+// РљР»Р°СЃСЃ РІС‹РІРѕРґР° РЅРµС‡РµС‚РЅС‹С… С‡РёСЃРµР»:
 class OddNumbersOutput : public NumbersOutput
 {
 	public:
